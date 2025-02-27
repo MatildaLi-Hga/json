@@ -1,8 +1,8 @@
 {
   "nimi": "Digitekniikat",
   "osallistujat": ["Matti Meikäläinen", "Mika Nieminen", "Paula Pikkarainen", "Rita Rautio", "Jari Jokinen"],
-  "alkamisPvm": "2025-01-13",
-  "loppumisPvm": "2025-03-14",
+  "alkamisPvm": "13-01-2025",
+  "loppumisPvm": "14-03-2025",
   "kesto": "8 viikkoa",
   "kuva": "https://matildali-hga.github.io/json/digitekniikat.jpg"
 }
