@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapahtumat Tampereella</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="toteutus.html">Toteutus</a>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a href="saa.html">Sää</a>
+    </nav>
+
+    <h1>Tampereella tapahtuu</h1>
+    <div id="vastaus"></div>
+
+    <script>
+    // Haetaan Tampereen tapahtumat
+    fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi')
+      .then(response => response.json())
+      .then(data => tapahtumat(data))
+      .catch(error => {
+        document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>" + error;
+      });
+
+    // Funktio tapahtumien näyttämiseen
+    function tapahtumat(data) {
+      let teksti = "<h1>Tampereella tapahtuu</h1>";
+
+      data.forEach(event => {
+        teksti += `
+          <h3>${event.name}</h3>
+          <p>${event.description}</p>
+          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
+        `;
+      });
+
+      document.getElementById("vastaus").innerHTML = teksti;
+    }
+    </script>
+</body>
+</html>
