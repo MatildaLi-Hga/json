@@ -9,30 +9,29 @@
 <body>
 
    <!-- Navigointipalkki -->
-   <nav class="navbar">
-       <div class="navbar-container">
-           <ul class="navbar-links">
-               <li><a href="index.html" class="navbar-link">Etusivu</a></li>
-               <li><a href="toteutus.html" class="navbar-link">Toteutukset</a></li>
-           </ul>
-       </div>
-   </nav>
+<nav class="navbar">
+    <div class="navbar-container">
+        <ul class="navbar-links">
+            <li><a href="index.html" class="navbar-link">Etusivu</a></li>
+            <li><a href="toteutus.html" class="navbar-link">Toteutukset</a></li>
+        </ul>
+    </div>
+</nav>
 
-   <!-- Keskitetty sisältö -->
-   <div id="vastaus">
-       <h1>Toteutus: <span id="toteutus-nimi"></span></h1>
-       <p><strong>Osallistujien lukumäärä:</strong> <span id="osallistujien-lkm"></span></p>
+    <div class="content">
+        <h1>Toteutus: <span id="toteutus-nimi"></span></h1>
+        <p><strong>Osallistujien lukumäärä:</strong> <span id="osallistujien-lkm"></span></p>
+        
+        <h3>Osallistujat:</h3>
+        <ul id="osallistujat"></ul>
+        
+        <p><strong>Toteutuksen aikaraja:</strong> <span id="toteutus-aika"></span></p>
+        <p><strong>Toteutuksen kesto:</strong> <span id="toteutus-kesto"></span></p>
+        
+        <h3>Toteutuksen kuva:</h3>
+        <img id="toteutus-kuva" src="" alt="Toteutuksen kuva" style="max-width: 100%; height: auto;">
+    </div>
 
-       <h3>Osallistujat:</h3>
-       <ul id="osallistujat"></ul>
-
-       <p><strong>Toteutuksen aikaraja:</strong> <span id="toteutus-aika"></span></p>
-       <p><strong>Toteutuksen kesto:</strong> <span id="toteutus-kesto"></span></p>
-
-       <h3>Toteutuksen kuva:</h3>
-       <img id="toteutus-kuva" src="" alt="Toteutuksen kuva" style="max-width: 100%; height: auto;">
-   </div>
-
-   <script src="oma.js"></script>
+    <script src="oma.js"></script>
 </body>
 </html>
