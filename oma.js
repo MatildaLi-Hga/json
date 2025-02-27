@@ -1,5 +1,5 @@
 
-const jsonUrl = "https://github.com/MatildaLi-Hga/json/data.json"; 
+const jsonUrl = "data.json"; 
 
 // Haetaan JSON-data
 fetch(jsonUrl)
