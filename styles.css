@@ -90,43 +90,45 @@ h3, h4 {
 .navbar {
     background-color: #333;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Varmistaa, että navigointipalkki on päällä */
-    padding: 10px 20px;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
     box-shadow: 0 4px 2px -2px gray;
+    display: flex;
+    justify-content: center; /* Keskittää sisällön vaakasuunnassa */
 }
 
+/* Navigointilinkkien sisältö */
 .navbar-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Keskitetään linkit */
     align-items: center;
+    width: 100%;
 }
 
-.navbar-logo {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+/* Linkkilista */
 .navbar-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    gap: 40px; /* Lisää tilaa linkkien väliin */
 }
 
+/* Linkkien ulkoasu */
 .navbar-link {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease-in-out;
 }
 
 .navbar-link:hover {
-    color: #ffd700; /* Korostaa linkkiä, kun siihen menee hiiri */
+    color: #ffd700; /* Hover-efekti */
 }
 
 /* Responsiivinen navigointi */
