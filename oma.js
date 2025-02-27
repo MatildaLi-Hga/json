@@ -74,10 +74,13 @@ function naytaToteutus(toteutus) {
     } else {
         console.error("HTML-elementtejä puuttuu.");
 
-        // JavaScript hamppari-navigaation logiikka
-document.querySelector('.navbar-toggler').addEventListener('click', function() {
-    const navbarLinks = document.querySelector('.navbar-links');
-    navbarLinks.classList.toggle('active'); // Toggle "active" luokka, joka voi avata/sulkea valikon
-});
     }
 }
+// Odotetaan, että DOM on ladattu, ennen kuin lisätään hamppari-navigaation logiikka
+document.addEventListener("DOMContentLoaded", function() {
+    // Hamppari-navigaation logiikka
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+        const navbarLinks = document.querySelector('.navbar-links');
+        navbarLinks.classList.toggle('active'); // Toggle "active" luokka, joka voi avata/sulkea valikon
+    });
+});
