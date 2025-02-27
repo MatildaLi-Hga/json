@@ -16,32 +16,42 @@
     <h1>Tampereella tapahtuu</h1>
     <div id="vastaus"></div>
 
-    <script>
-    // Haetaan Tampereen tapahtumat
-    fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi')
-      .then(response => response.json())
-      .then(data => tapahtumat(data))
-      .catch(error => {
-        document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>" + error;
-      });
-
-function tapahtumat(data) {
-      let teksti = "";
+<script>
+  // Haetaan Tampereen tapahtumat
+  fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi')
+    .then(response => response.json())
+    .then(data => {
+      // Debugging: tulostetaan data konsoliin
+      console.log(data);
       
-      // Käydään läpi kaikki tapahtumat ja luodaan HTML sisältö
-      data.forEach(event => {
-        teksti += `
-          <div class="event">
-            <h3>${event.name}</h3>
-            <p>${event.description}</p>
-            <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
-          </div>
-        `;
-      });
+      // Käydään läpi data ja näytetään tapahtumat
+      tapahtumat(data);
+    })
+    .catch(error => {
+      document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>" + error;
+    });
 
-      // Asetetaan luotu sisältö vastaus-elementtiin
-      document.getElementById("vastaus").innerHTML = teksti;
-    }
-    </script>
+  // Funktio tapahtumien näyttämiseen
+  function tapahtumat(data) {
+    let teksti = "";
+
+    // Käydään läpi kaikki tapahtumat ja luodaan HTML sisältö
+    data.forEach(event => {
+      // Debugging: tarkistetaan jokainen tapahtuma
+      console.log(event);
+
+      teksti += `
+        <div class="event">
+          <h3>${event.name}</h3>
+          <p>${event.description}</p>
+          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
+        </div>
+      `;
+    });
+
+    // Asetetaan luotu sisältö vastaus-elementtiin
+    document.getElementById("vastaus").innerHTML = teksti;
+  }
+</script>
 </body>
 </html>
