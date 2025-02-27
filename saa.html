@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Säätila</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .weather-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="toteutus.html">Toteutus</a>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a href="saa.html">Sää</a>
+    </nav>
+
+    <h1>Säätila Helsingissä ja Tampereella</h1>
+
+    <div class="container">
+        <div class="weather-box" id="helsinki"></div>
+        <div class="weather-box" id="tampere"></div>
+    </div>
+
+    <script>
+        const apiKey = "665ecd56dfc08dbb50feb8b8f5034e28";
+
+        function haeSaa(kaupunki, elementti) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${kaupunki}&units=metric&lang=fi&appid=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    let teksti = `
+                        <h2>${data.name}</h2>
+                        <p>${data.weather[0].description}</p>
+                        <p>Lämpötila: ${data.main.temp}°C</p>
+                        <p>Kosteus: ${data.main.humidity}%</p>
+                        <p>Tuuli: ${data.wind.speed} m/s</p>
+                    `;
+                    document.getElementById(elementti).innerHTML = teksti;
+                })
+                .catch(error => {
+                    document.getElementById(elementti).innerHTML = "<p>Tietoa ei voitu hakea.</p>" + error;
+                });
+        }
+
+        // Haetaan sää Helsingistä ja Tampereelta
+        haeSaa("Helsinki", "helsinki");
+        haeSaa("Tampere", "tampere");
+    </script>
+</body>
+</html>
