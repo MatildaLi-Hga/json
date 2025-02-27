@@ -23,7 +23,7 @@
     .then(data => {
       // Debugging: tulostetaan data konsoliin
       console.log(data);
-      
+
       // Käydään läpi data ja näytetään tapahtumat
       tapahtumat(data);
     })
@@ -40,11 +40,12 @@
       // Debugging: tarkistetaan jokainen tapahtuma
       console.log(event);
 
+      // Tässä käytämme 'title', 'description' ja 'url' kenttiä, kuten konsoliloki osoittaa
       teksti += `
         <div class="event">
-          <h3>${event.name}</h3>
-          <p>${event.description}</p>
-          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
+          <h3>${event.title}</h3> <!-- Käytetään title-kenttää -->
+          <p>${event.description}</p> <!-- Käytetään description-kenttää -->
+          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p> <!-- Käytetään url-kenttää -->
         </div>
       `;
     });
