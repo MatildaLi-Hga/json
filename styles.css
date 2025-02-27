@@ -114,7 +114,7 @@ h3, h4 {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 40px; /* Lisää tilaa linkkien väliin */
+    gap: 20px; 
 }
 
 /* Linkkien ulkoasu */
