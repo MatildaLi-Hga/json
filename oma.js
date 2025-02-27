@@ -1,5 +1,5 @@
-
-const jsonUrl = "https://raw.githubusercontent.com/MatildaLi-Hga/json/main/data.json";
+const jsonUrl = "https://raw.githubusercontent.com/MatildaLi-Hga/json/main/data.json";  // Nykyinen JSON-tiedosto
+const toteutusUrl = "https://raw.githubusercontent.com/MatildaLi-Hga/json/main/toteutus.json";  // Uusi JSON-tiedosto toteutusta varten
 
 // Haetaan JSON-data
 fetch(jsonUrl)
@@ -8,6 +8,14 @@ fetch(jsonUrl)
     .catch(error => {
         document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
         console.error("Virhe haettaessa JSON-dataa:", error);
+    });
+
+// Haetaan toteutuksen tiedot
+fetch(toteutusUrl)
+    .then(response => response.json()) // Muunnetaan JSON-muotoon
+    .then(toteutusData => naytaToteutus(toteutusData)) // Kutsutaan funktiota naytaToteutus()
+    .catch(error => {
+        console.error("Virhe haettaessa toteutuksen tietoja:", error);
     });
 
 // Funktio JSON-datan näyttämiseen sivulla
@@ -35,4 +43,23 @@ function kerro(data) {
     html += `</ul>`;
 
     document.getElementById("vastaus").innerHTML = html;
+}
+
+// Funktio toteutuksen tietojen näyttämiseen
+function naytaToteutus(toteutus) {
+    document.getElementById("toteutus-nimi").innerText = toteutus.nimi;
+    document.getElementById("osallistujien-lkm").innerText = toteutus.osallistujat.length;
+    document.getElementById("toteutus-aika").innerText = `${toteutus.alkamisPvm} - ${toteutus.loppumisPvm}`;
+    document.getElementById("toteutus-kesto").innerText = toteutus.kesto;
+    
+    // Osallistujat listassa
+    const osallistujatList = document.getElementById("osallistujat");
+    toteutus.osallistujat.forEach(osallistuja => {
+        const li = document.createElement("li");
+        li.innerText = osallistuja;
+        osallistujatList.appendChild(li);
+    });
+
+    // Kuva
+    document.getElementById("toteutus-kuva").src = toteutus.kuva;
 }
