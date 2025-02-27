@@ -47,19 +47,29 @@ function kerro(data) {
 
 // Funktio toteutuksen tietojen näyttämiseen
 function naytaToteutus(toteutus) {
-    document.getElementById("toteutus-nimi").innerText = toteutus.nimi;
-    document.getElementById("osallistujien-lkm").innerText = toteutus.osallistujat.length;
-    document.getElementById("toteutus-aika").innerText = `${toteutus.alkamisPvm} - ${toteutus.loppumisPvm}`;
-    document.getElementById("toteutus-kesto").innerText = toteutus.kesto;
-    
-    // Osallistujat listassa
+    const toteutusNimi = document.getElementById("toteutus-nimi");
+    const osallistujienLkm = document.getElementById("osallistujien-lkm");
+    const toteutusAika = document.getElementById("toteutus-aika");
+    const toteutusKesto = document.getElementById("toteutus-kesto");
     const osallistujatList = document.getElementById("osallistujat");
-    toteutus.osallistujat.forEach(osallistuja => {
-        const li = document.createElement("li");
-        li.innerText = osallistuja;
-        osallistujatList.appendChild(li);
-    });
+    const toteutusKuva = document.getElementById("toteutus-kuva");
 
-    // Kuva
-    document.getElementById("toteutus-kuva").src = toteutus.kuva;
+    if (toteutusNimi && osallistujienLkm && toteutusAika && toteutusKesto && osallistujatList && toteutusKuva) {
+        toteutusNimi.innerText = toteutus.nimi;
+        osallistujienLkm.innerText = toteutus.osallistujat.length;
+        toteutusAika.innerText = `${toteutus.alkamisPvm} - ${toteutus.loppumisPvm}`;
+        toteutusKesto.innerText = toteutus.kesto;
+        
+        // Osallistujat listassa
+        toteutus.osallistujat.forEach(osallistuja => {
+            const li = document.createElement("li");
+            li.innerText = osallistuja;
+            osallistujatList.appendChild(li);
+        });
+
+        // Kuva
+        toteutusKuva.src = toteutus.kuva;
+    } else {
+        console.error("Virhe: Elementtejä ei löytynyt.");
+    }
 }
