@@ -73,5 +73,11 @@ function naytaToteutus(toteutus) {
         toteutusKuva.src = toteutus.kuva;
     } else {
         console.error("HTML-elementtejä puuttuu.");
+
+        // JavaScript hamppari-navigaation logiikka
+document.querySelector('.navbar-toggler').addEventListener('click', function() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('active'); // Toggle "active" luokka, joka voi avata/sulkea valikon
+});
     }
 }
