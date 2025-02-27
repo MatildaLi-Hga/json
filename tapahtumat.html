@@ -56,17 +56,17 @@
       // Debugging: tarkistetaan jokainen tapahtuma
       console.log(event);
 
-      // Tässä käytämme 'title', 'description' ja 'url' kenttiä, kuten konsoliloki osoittaa
+     
       teksti += `
         <div class="event">
-          <h3>${event.title}</h3> <!-- Käytetään title-kenttää -->
-          <p>${event.description}</p> <!-- Käytetään description-kenttää -->
-          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p> <!-- Käytetään url-kenttää -->
+          <h3>${event.title}</h3> 
+          <p>${event.description}</p> 
+          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p> 
         </div>
       `;
     });
 
-    // Asetetaan luotu sisältö vastaus-elementtiin
+  
     document.getElementById("vastaus").innerHTML = teksti;
   }
 </script>
