@@ -15,7 +15,8 @@ fetch(toteutusUrl)
     .then(response => response.json()) // Muunnetaan JSON-muotoon
     .then(toteutusData => naytaToteutus(toteutusData)) // Kutsutaan funktiota naytaToteutus()
     .catch(error => {
-        console.error("Virhe haettaessa toteutuksen tietoja:", error);
+         document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+        console.error("Virhe haettaessa JSON-dataa:", error);
     });
 
 // Funktio JSON-datan näyttämiseen sivulla
