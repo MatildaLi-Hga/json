@@ -45,31 +45,43 @@ function kerro(data) {
     document.getElementById("vastaus").innerHTML = html;
 }
 
-// Funktio toteutuksen tietojen näyttämiseen
-function naytaToteutus(toteutus) {
-    const toteutusNimi = document.getElementById("toteutus-nimi");
-    const osallistujienLkm = document.getElementById("osallistujien-lkm");
-    const toteutusAika = document.getElementById("toteutus-aika");
-    const toteutusKesto = document.getElementById("toteutus-kesto");
-    const osallistujatList = document.getElementById("osallistujat");
-    const toteutusKuva = document.getElementById("toteutus-kuva");
-
-    if (toteutusNimi && osallistujienLkm && toteutusAika && toteutusKesto && osallistujatList && toteutusKuva) {
-        toteutusNimi.innerText = toteutus.nimi;
-        osallistujienLkm.innerText = toteutus.osallistujat.length;
-        toteutusAika.innerText = `${toteutus.alkamisPvm} - ${toteutus.loppumisPvm}`;
-        toteutusKesto.innerText = toteutus.kesto;
-        
-        // Osallistujat listassa
-        toteutus.osallistujat.forEach(osallistuja => {
-            const li = document.createElement("li");
-            li.innerText = osallistuja;
-            osallistujatList.appendChild(li);
+document.addEventListener('DOMContentLoaded', function() {
+    // Haetaan toteutuksen tiedot
+    fetch(toteutusUrl)
+        .then(response => response.json()) // Muunnetaan JSON-muotoon
+        .then(toteutusData => naytaToteutus(toteutusData)) // Kutsutaan funktiota naytaToteutus()
+        .catch(error => {
+            console.error("Virhe haettaessa toteutuksen tietoja:", error);
         });
 
-        // Kuva
-        toteutusKuva.src = toteutus.kuva;
-    } else {
-        console.error("Virhe: Elementtejä ei löytynyt.");
+    // Funktio toteutuksen tietojen näyttämiseen
+    function naytaToteutus(toteutus) {
+        // Varmista, että HTML-elementit ovat olemassa
+        const toteutusNimi = document.getElementById("toteutus-nimi");
+        const osallistujienLkm = document.getElementById("osallistujien-lkm");
+        const toteutusAika = document.getElementById("toteutus-aika");
+        const toteutusKesto = document.getElementById("toteutus-kesto");
+        const osallistujatList = document.getElementById("osallistujat");
+        const toteutusKuva = document.getElementById("toteutus-kuva");
+
+        // Jos elementit löytyvät, lisätään sisältö
+        if (toteutusNimi && osallistujienLkm && toteutusAika && toteutusKesto && osallistujatList && toteutusKuva) {
+            toteutusNimi.innerText = toteutus.nimi;
+            osallistujienLkm.innerText = toteutus.osallistujat.length;
+            toteutusAika.innerText = `${toteutus.alkamisPvm} - ${toteutus.loppumisPvm}`;
+            toteutusKesto.innerText = toteutus.kesto;
+
+            // Osallistujat listassa
+            toteutus.osallistujat.forEach(osallistuja => {
+                const li = document.createElement("li");
+                li.innerText = osallistuja;
+                osallistujatList.appendChild(li);
+            });
+
+            // Kuva
+            toteutusKuva.src = toteutus.kuva;
+        } else {
+            console.error("HTML-elementtejä puuttuu.");
+        }
     }
-}
+});
