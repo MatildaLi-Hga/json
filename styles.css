@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Yleinen asettelu ja taustaväri */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -85,6 +83,67 @@ a:hover {
 h3, h4 {
     color: #34495e;
     margin-top: 20px;
+}
+
+/* Navigointipalkki */
+.navbar {
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Varmistaa, että navigointipalkki on päällä */
+    padding: 10px 20px;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.navbar-link:hover {
+    color: #ffd700; /* Korostaa linkkiä, kun siihen menee hiiri */
+}
+
+/* Responsiivinen navigointi */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .navbar-link {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 }
 
 /* Responsiivinen käytettävyys */
