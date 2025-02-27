@@ -30,7 +30,8 @@
     </div>
 </nav>
 
-           <script src="oma.js"></script>
+    <h1>Liikennekameran kuvat</h1>
+    <div id="kameran-kuvat"></div>
 
     <script>
         const kameraUrl = "https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data"; // Esimerkki URL
@@ -47,5 +48,8 @@
             })
             .catch(error => console.error("Virhe haettaessa kameraa:", error));
     </script>
+
+
+    <script src="oma.js"></script>
 </body>
 </html>
