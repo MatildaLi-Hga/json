@@ -1,14 +1,8 @@
 {
-  "toteutus_nimi": "Digitekniikat",
-  "osallistujat": [
-    "Matti Meikäläinen",
-    "Liisa Laitinen",
-    "Jari Järvinen",
-    "Anna Ahonen",
-    "Pekka Peltola"
-  ],
-  "alkamis_aika": "13.1.2025",
-  "loppumis_aika": "14.3.2025",
-  "kesto_viikoissa": 8,
-  "kuva": "https://via.placeholder.com/150" 
+  "nimi": "Digitekniikat",
+  "osallistujat": ["Matti Meikäläinen", "Mika Nieminen", "Paula Pikkarainen", "Rita Rautio", "Jari Jokinen"],
+  "alkamisPvm": "2025-01-13",
+  "loppumisPvm": "2025-03-14",
+  "kesto": "8 viikkoa",
+  "kuva": "https://example.com/toteutuskuva.jpg"
 }
