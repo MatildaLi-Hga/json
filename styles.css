@@ -135,7 +135,7 @@ h3, h4 {
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .navbar-links {
