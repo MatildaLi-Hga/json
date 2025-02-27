@@ -31,5 +31,21 @@
 </nav>
 
            <script src="oma.js"></script>
+
+    <script>
+        const kameraUrl = "https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data"; // Esimerkki URL
+        fetch(kameraUrl)
+            .then(response => response.json())
+            .then(data => {
+                let html = '';
+                for (let i = 0; i < data.length; i++) {
+                    const aika = data[i].timestamp;
+                    const kuva = data[i].imageUrl; // Varmista, että tämä kenttä vastaa oikeaa JSON-rakennetta
+                    html += `<p>Aika: ${aika}</p><img src="${kuva}" alt="Kamera" />`;
+                }
+                document.getElementById("kameran-kuvat").innerHTML = html;
+            })
+            .catch(error => console.error("Virhe haettaessa kameraa:", error));
+    </script>
 </body>
 </html>
