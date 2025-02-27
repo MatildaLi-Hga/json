@@ -25,18 +25,21 @@
         document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>" + error;
       });
 
-    // Funktio tapahtumien näyttämiseen
-    function tapahtumat(data) {
-      let teksti = "<h1>Tampereella tapahtuu</h1>";
-
+function tapahtumat(data) {
+      let teksti = "";
+      
+      // Käydään läpi kaikki tapahtumat ja luodaan HTML sisältö
       data.forEach(event => {
         teksti += `
-          <h3>${event.name}</h3>
-          <p>${event.description}</p>
-          <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
+          <div class="event">
+            <h3>${event.name}</h3>
+            <p>${event.description}</p>
+            <p><a href="${event.url}" target="_blank">Lisätietoa</a></p>
+          </div>
         `;
       });
 
+      // Asetetaan luotu sisältö vastaus-elementtiin
       document.getElementById("vastaus").innerHTML = teksti;
     }
     </script>
