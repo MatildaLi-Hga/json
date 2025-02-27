@@ -47,7 +47,7 @@ function kerro(data) {
 
 // Funktio toteutuksen tietojen näyttämiseen
 function naytaToteutus(toteutus) {
-    // Varmista, että HTML-elementit ovat olemassa
+
     const toteutusNimi = document.getElementById("toteutus-nimi");
     const osallistujienLkm = document.getElementById("osallistujien-lkm");
     const toteutusAika = document.getElementById("toteutus-aika");
@@ -55,7 +55,7 @@ function naytaToteutus(toteutus) {
     const osallistujatList = document.getElementById("osallistujat");
     const toteutusKuva = document.getElementById("toteutus-kuva");
 
-    // Jos elementit löytyvät, lisätään sisältö
+   
     if (toteutusNimi && osallistujienLkm && toteutusAika && toteutusKesto && osallistujatList && toteutusKuva) {
         toteutusNimi.innerText = toteutus.nimi;
         osallistujienLkm.innerText = toteutus.osallistujat.length;
@@ -76,7 +76,7 @@ function naytaToteutus(toteutus) {
 
     }
 }
-// Odotetaan, että DOM on ladattu, ennen kuin lisätään hamppari-navigaation logiikka
+
 document.addEventListener("DOMContentLoaded", function() {
     // Hamppari-navigaation logiikka
     document.querySelector('.navbar-toggler').addEventListener('click', function() {
